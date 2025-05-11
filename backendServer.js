@@ -2,16 +2,22 @@ const http = require("http");
 const serverList = require("./serverConfig.json").servers;
 
 
-const createServer = ( host, port)=>{
+const createServer = ( host, port, timeout)=>{
     
     http.createServer((req,res)=>{
 
         if("/"===req.url){
-            res.statusCode = 200
-            return res.end(`req is commig on / successfully and running on ${host}:${port}`);
+            setTimeout(()=>{            
+                res.statusCode = 200
+                return res.end(`req is commig on / successfully and running on ${host}:${port}`);
+            }, timeout);
+            
+        }
+        else{
+            return res.end(`No Path Match`);
         }
 
-        return res.end(`No Path Match`);
+       
  
         
         
@@ -22,7 +28,7 @@ const createServer = ( host, port)=>{
 
 //all running servers
 serverList.forEach((server)=>{
-    createServer( server.host, server.port);
+    createServer( server.host, server.port, server.timeout);
 })
 
 

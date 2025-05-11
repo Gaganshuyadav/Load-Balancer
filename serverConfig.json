@@ -3,23 +3,28 @@
     "servers":[
         {
             "host":"localhost",
-            "port": 4001
+            "port": 4001,
+            "timeout":4300
         },
         {
             "host":"localhost",
-            "port": 4002
+            "port": 4002,
+            "timeout":2000
         },
         {
             "host":"localhost",
-            "port": 4003
+            "port": 4003,
+            "timeout":5000
         },
         {
             "host":"localhost",
-            "port": 4004
+            "port": 4004,
+            "timeout":8000
         },
         {
             "host":"localhost",
-            "port": 4005
+            "port": 4005,
+            "timeout":3000
         }
     ]
 }
